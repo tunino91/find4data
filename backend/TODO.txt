@@ -1,0 +1,2 @@
+1) @JobCard.js format the date as: July 4, 2020 from 07-04-2020 type,
+2) 3:35' isAuthenticated,
