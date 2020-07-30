@@ -1,0 +1,8 @@
+1) http://localhost:3000/register does register a new user and gives back a token. 
+Though it is not a jwt token so it doesn't have 'access' and 'refresh' tokens seperately.
+Right now http://localhost:3000/post will post a job but saves it manually for username='tuna2'
+This user has to be retrieved with request.user, but to do that I need to figure out the login
+and permissions stuff..
+
+2) @JobCard.js format the date as: July 4, 2020 from 07-04-2020 type,
+3) 3:35' isAuthenticated,
