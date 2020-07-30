@@ -8,10 +8,10 @@ from .models import JobPost, JobPostDummy
 class JobPostAdmin(admin.ModelAdmin):
     ## Added 'USER' column to admin. Shows who posted the Job
     # list_display = ['__str__', 'user']
-    list_display = ['__str__', 'title']
+    list_display = ['__str__', 'user']
     ## Adds a search field in the JobPosts in admin. Job Posts then can ben searched and filtered by company name,date_created,etc.
-    # search_fields = ['user__company','user__location','title','date_created',]
-    search_fields = ['title','date_created',]
+    search_fields = ['user__company','user__location','title','date_created',]
+    # search_fields = ['title','date_created',]
     class Meta:
         model = JobPost
 

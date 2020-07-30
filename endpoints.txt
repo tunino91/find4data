@@ -9,7 +9,7 @@ URLS:
     Register: http://localhost:3000/register: Creates a new user
     Job Detail View: http://localhost:3000/jobDetail/job_id You can also delete that job from this view
     Job Delete: http://localhost:3000/jobDelete/job_id
-    404: Post: http://localhost:3000/*else
+    404: http://localhost:3000/*else
 
 -->Backend
     404: http://127.0.0.1:8000/

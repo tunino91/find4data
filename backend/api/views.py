@@ -98,17 +98,15 @@ def jobDelete(request, job_id, *args, **kwargs):
     if not qs.exists():
         return Response({f'The job you are trying to access with the id = {job_id} doesn\'t exists'}, status=404)
     
-    ## TODO: I need to distinguish between the Employer and a regular user. 
-    ## CONTINUED: Here I need check if the current user is employer and allow only the original poster to delete the job from the same company 
-    ## qs = qs.filter(user=request.user)
-    # user = request.user
-    # qs = qs.filter(user=user)
-
-    # print('request.user: ',request.user)
-    print('Of that user: ',qs)
+    ## TODO: In this line, the we need to filter as (user=request.user) because we are 
+    # trying to see if the job was posted by this particular user. For now, I have 
+    # hardcoded it to be user='tuna2': meaning the current user who clicked to delete is 'tuna2'
+    user_query = User.objects.filter(username='tuna2')
+    pretended_loggedin_user = user_query.first()
+    qs = qs.filter(user=pretended_loggedin_user) 
     if not qs.exists():
         return Response({'message': 'You cannot delete this tweet'})
     obj = qs.first()
     print('object: ',obj)
-    # obj.delete()
+    obj.delete()
     return Response({'message':'The job has been deleted'}, status=200)
